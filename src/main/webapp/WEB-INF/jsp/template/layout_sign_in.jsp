@@ -62,12 +62,18 @@
 					"authority": "student",
 					"userNameInApp": userNameInApp,
 					"realName": realName
+				},
+				success: function(data) {
+					console.log(data);
+					if (data["success"] == true) {
+						location.href = "/user/sign_in_view";
+					}
 				}
 			});
 		});
 		$("#signin-form").on("submit", function(e) {
 			e.preventDefault();
-			console.log("signin");
+			// console.log("signin");
 			
 			let username = $("#username").val();
 			let password = $("#password").val();
@@ -84,6 +90,20 @@
 				data: {
 					"username": username,
 					"password": password,
+				},
+				statusCode: {
+					200: function(response) {
+						location.href = "/";
+					},
+					201: function(response) {
+					location.href = "/";
+					}
+				},
+				success: function(data) {
+					console.log(data);
+					if (data["success"] == true) {
+						location.href = "/";
+					}
 				}
 			});
 		});

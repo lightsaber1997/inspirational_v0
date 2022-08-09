@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<form method="POST" id="signin-form" class="signup-form">
+<form method="POST" id="signin-form" class="signin-form">
 	<h2 class="form-title">Sign In</h2>
 	<div class="form-group">
 		<input type="text" class="form-input" name="username" id="username"
@@ -17,7 +17,7 @@
 
 	<div class="form-group">
 		<input type="submit" name="submit" id="submit" class="form-submit"
-			value="Sign up" />
+			value="Sign In" />
 	</div>
 </form>
 <p class="loginhere">

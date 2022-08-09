@@ -1,12 +1,19 @@
 package com.inspirational.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.inspirational.user.User;
+import com.inspirational.user.UserBO;
 
 @RequestMapping("/user")
 @Controller
 public class UserController {
+	@Autowired
+	private UserBO userBO;
 	
 	@RequestMapping("/sign_up_view")
 	public String signUpView(Model model) {
@@ -20,6 +27,19 @@ public class UserController {
 		model.addAttribute("mainCss", "/static/css/sign_up_view/style.css");
 		model.addAttribute("viewName", "user/sign_in_view");
 		return "template/layout_sign_in";
+	}
+	
+	@RequestMapping("/profile/{userNameInApp}")
+	public String profile(
+			@PathVariable("userNameInApp") String userNameInApp,
+			Model model) {
+		User user = userBO.selectUserByUserNameInApp(userNameInApp);
+		model.addAttribute("profile_user", user);
+		if (user.getAuthority().equals("student")) {
+			model.addAttribute("viewName", "user/profile_student");
+		}
+		model.addAttribute("css_file", "/static/css/student_profile_view/style.css");
+		return "template/layout";
 	}
 	
 	

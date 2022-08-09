@@ -20,6 +20,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private CustomUserDetailsService userDetailsService;
 	
+	private static final String[] publicUrls = {
+		"/"	
+	};
+	
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
@@ -33,12 +37,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
+		.antMatchers(publicUrls).permitAll()
 		.antMatchers("/hello/").authenticated()
 		.and()
 		.formLogin()
 		.loginPage("/user/sign_in_view")
 		.loginProcessingUrl("/user/sign_in")
-		.defaultSuccessUrl("/index")
+		.defaultSuccessUrl("/")
+		;
+		
+		http.logout()
+			.logoutUrl("/user/logout")
+			.logoutSuccessUrl("/");
 		;
 	}
 	

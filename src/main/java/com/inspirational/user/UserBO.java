@@ -29,6 +29,11 @@ public class UserBO {
 			String loginId) {
 		return userDAO.selectUserByLoginId(loginId);
 	}
+	
+	public User selectUserByUserNameInApp(
+			String userNameInApp) {
+		return userDAO.selectUserByUserNameInApp(userNameInApp);
+	}
 
 	public void insertUser(
 			String loginId, String password, String email, 

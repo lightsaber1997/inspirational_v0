@@ -12,6 +12,8 @@ public interface UserDAO {
 			@Param("id") int id);
 	public User selectUserByLoginId(
 			@Param("loginId") String loginId);
+	public User selectUserByUserNameInApp(
+			@Param("userNameInApp") String userNameInApp);
 	public void insertUser(
 			@Param("loginId") String loginId,
 			@Param("encryptedPassword") String encryptedPassword,
