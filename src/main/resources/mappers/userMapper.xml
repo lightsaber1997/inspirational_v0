@@ -1,0 +1,38 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.inspirational.user.UserDAO">
+	<select id="selectUserList"
+		resultType="com.inspirational.user.User">
+		select
+		*
+		from
+		`User`
+	</select>
+	<select id="selectUserById"
+		resultType="com.inspirational.user.User">
+		select
+		*
+		from
+		`User`
+		where
+		id = #{id}
+	</select>
+	<select id="selectUserByLoginId"
+		resultType="com.inspirational.user.User">
+		select
+		*
+		from
+		`User`
+		where
+		loginId = #{loginId}
+	</select>
+	<insert id="insertUser">
+		insert into
+		`User`
+		(loginId, encryptedPassword, email, phoneNumber, authority, userNameInApp,
+		realName)
+		values
+		(#{loginId}, #{encryptedPassword}, #{email}, #{phoneNumber}, #{authority},
+		#{userNameInApp}, #{realName})
+	</insert>
+</mapper>

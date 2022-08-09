@@ -1,43 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-<meta name="_csrf" content="${_csrf.token}">
-<meta name="_csrf_header" content="${_csrf.headerName}">
-</head>
-<body>
-	<input name="loginId" type="text">
-	<input name="password" type="password">
-	<button id="submit_btn">Submit</button>
-	
-</body>
-<script>
-$(document).ready(function() {
-	
-	$("#submit_btn").on("click", function() {
-		let loginId = $("input[name=loginId]").val();
-		let password = $("input[name=password]").val();
-		
-		let csrf_token  = $("meta[name='_csrf']").attr("content");
-		let csrf_header = $("meta[name='_csrf_header']").attr("content");
-		
-		$.ajax({
-			url: "/user/sign_in",
-			method: "POST",
-			beforeSend: function(request) {
-				request.setRequestHeader(csrf_header, csrf_token);
-			},
-			data: {"username": loginId, "password": password},
-			success: function(data) {
-				console.log(data);
-			}
-		});
-	});
+	pageEncoding="UTF-8"%>
 
-});
-</script>
-</html>
+<form method="POST" id="signin-form" class="signup-form">
+	<h2 class="form-title">Sign In</h2>
+	<div class="form-group">
+		<input type="text" class="form-input" name="username" id="username"
+			placeholder="아이디" />
+	</div>
+
+
+	<div class="form-group">
+		<input type="password" class="form-input" name="password"
+			id="password" placeholder="비밀번호" />
+	</div>
+
+
+	<div class="form-group">
+		<input type="submit" name="submit" id="submit" class="form-submit"
+			value="Sign up" />
+	</div>
+</form>
+<p class="loginhere">
+	계정이 없으신가요 ? <a href="/user/sign_up_view" class="loginhere-link">회원가입 하기</a>
+</p>
