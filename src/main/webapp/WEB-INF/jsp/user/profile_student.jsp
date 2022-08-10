@@ -7,8 +7,7 @@
 		<div class="full-withradius border mt-3">
 			<div id="username_cursive">${profile_user.userNameInApp}</div>
 			<div class="profile-info">유저네임 ${profile_user.userNameInApp}</div>
-			<div class="profile-info">학년</div>
-			<div class="profile-info">과외 희망 지역</div>
+
 			<c:if test="${can_edit}">
 			
 				<div id="div_edit">
@@ -21,7 +20,9 @@
 		<div class="my-5">
 			<div>
 				<div>자기소개 및 선생님께 한마디</div>
-				<div>sdfasdfasdfdsfasdfdsfdsfasdfasdf</div>
+				<div>
+				${studentProfile.content}
+				</div>
 			</div>
 			
 			<div>

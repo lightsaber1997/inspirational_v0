@@ -1,0 +1,22 @@
+#request_main_content {
+  width: 100%;
+  min-height: 200px;
+  resize: none;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  color: #666;
+  box-shadow: inset 0 0 0.25rem #ddd;
+  background: #d0e6ef;
+}
+#request_main_content:focus {
+  outline: none;
+  border: 1px solid #d0d0d0;
+  box-shadow: inset 0 0 0.5rem #d0d0d0;
+}
+#request_main_content[placeholder] {
+  font-style: italic;
+  font-size: 0.875rem;
+}
+
+/*# sourceMappingURL=style.css.map */

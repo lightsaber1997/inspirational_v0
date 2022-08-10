@@ -1,4 +1,10 @@
-#text {
+.edit_profile_title {
+  font-family: "PT Sans", sans-serif;
+  font-size: 4em;
+  font-weight: bold;
+}
+
+#profile_content {
   width: 80%;
   max-width: 800px;
   overflow: hidden;
@@ -19,6 +25,7 @@
   border-radius: 12px;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
+  outline: none;
 }
 
 /*# sourceMappingURL=style.css.map */
