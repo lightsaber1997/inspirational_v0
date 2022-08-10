@@ -11,7 +11,13 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 
+import com.inspirational.authentication.AjaxAuthenticationFailureHandler;
+import com.inspirational.authentication.AjaxAuthenticationSuccessHandler;
+import com.inspirational.authentication.AjaxLogoutSuccessHandler;
 import com.inspirational.userDetails.CustomUserDetailsService;
 
 @Configuration
@@ -29,6 +35,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		return new BCryptPasswordEncoder();
 	}
 	
+	@Bean
+	public AuthenticationSuccessHandler ajaxAuthenticationSuccessHandler() {
+		return new AjaxAuthenticationSuccessHandler();
+	}
+	
+	@Bean
+	public AuthenticationFailureHandler ajaxAuthenticationFailureHandler() {
+		return new AjaxAuthenticationFailureHandler();
+	}
+	
+	@Bean
+	public LogoutSuccessHandler ajaxLogoutSuccessHandler() {
+		return new AjaxLogoutSuccessHandler();
+	}
+	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.authenticationProvider(authProvider());
@@ -43,12 +64,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		.formLogin()
 		.loginPage("/user/sign_in_view")
 		.loginProcessingUrl("/user/sign_in")
-		.defaultSuccessUrl("/")
+		.successHandler(ajaxAuthenticationSuccessHandler())
+		.failureHandler(ajaxAuthenticationFailureHandler())
 		;
 		
 		http.logout()
 			.logoutUrl("/user/logout")
-			.logoutSuccessUrl("/");
+			.logoutSuccessHandler(ajaxLogoutSuccessHandler())
+			;
 		;
 	}
 	

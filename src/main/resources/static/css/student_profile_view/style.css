@@ -1,9 +1,5 @@
 .border {
-  font-size: 1.6rem;
-  display: grid;
-  place-items: center;
-  min-height: 200px;
-  border: 8px solid;
+  border: 6px solid;
   padding: 1rem;
 }
 
@@ -48,20 +44,35 @@ I've added a few comments on why we're using certain properties
   bottom: 0;
   left: 0;
   z-index: -1;
-  margin: -8px; /* same as border width */
-  border-radius: inherit; /* inherit container box's radius */
+  margin: -8px;
+  /* same as border width */
+  border-radius: inherit;
+  /* inherit container box's radius */
   background: linear-gradient(to left, #96ceb4, #cfe0e8);
 }
 
 #username_cursive {
   font-family: "Tangerine", cursive;
-  font-size: 3em;
+  font-size: 5em;
 }
 
 .edit_img {
-  display: block;
-  width: 45px;
+  display: inline-block;
+  width: 25px;
   cursor: pointer;
+}
+
+#div_edit {
+  font-size: 1.2em;
+  color: #bdc3c7;
+  text-align: right;
+}
+
+.profile-info {
+  font-family: "Nanum Gothic", sans-serif;
+  font-size: 1.2em;
+  padding-left: 3px;
+  padding-right: 3px;
 }
 
 /*# sourceMappingURL=style.css.map */

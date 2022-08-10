@@ -91,19 +91,15 @@
 					"username": username,
 					"password": password,
 				},
-				statusCode: {
-					200: function(response) {
-						location.href = "/";
-					},
-					201: function(response) {
-					location.href = "/";
-					}
-				},
+
 				success: function(data) {
-					console.log(data);
 					if (data["success"] == true) {
 						location.href = "/";
 					}
+					else {
+						alert("존재하지 않는 아이디이거나 패스워드가 잘못되었습니다. ")
+					}
+					
 				}
 			});
 		});
