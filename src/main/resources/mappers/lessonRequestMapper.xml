@@ -1,0 +1,51 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.inspirational.lessonRequest.LessonRequestDAO">
+	<select id="selectAll"
+		resultType="com.inspirational.lessonRequest.LessonRequest">
+		select
+		*
+		from
+		`lesson_request`
+	</select>
+	<select id="selectById"
+		resultType="com.inspirational.lessonRequest.LessonRequest">
+		select
+		*
+		from
+		`lesson_request`
+	</select>
+	<select id="selectByStudentId"
+		resultType="com.inspirational.lessonRequest.LessonRequest">
+		select
+		*
+		from
+		`lesson_request`
+	</select>
+	<select id="selectByGradeId"
+		resultType="com.inspirational.lessonRequest.LessonRequest">
+		select
+		*
+		from
+		`lesson_request`
+	</select>
+	<insert id="insert" useGeneratedKeys="true" keyProperty="getPK.id"
+	 parameterType="com.inspirational.lessonRequest.LessonRequest">
+		insert into
+		`lesson_request`
+		(studentId, gradeId, mainContent, usePhoneNumber)
+		values
+		(#{studentId}, #{gradeId}, #{mainContent}, #{usePhoneNumber})
+	</insert>
+	<update id="update">
+		update
+		`lesson_request`
+		set
+		gradeId = #{gradeId},
+		mainContent = #{mainContent},
+		usePhoneNumber = #{usePhoneNumber}
+		where
+		id = #{id}
+	</update>
+</mapper>

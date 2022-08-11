@@ -20,7 +20,7 @@ public class LessonRequestController {
 	public String createView(Model model) {
 		List<Subject> listSubject = subejctBo.selectAll();
 		
-		
+		model.addAttribute("listSubject", listSubject);
 		model.addAttribute("viewName", "lesson_request/create_view");
 		model.addAttribute("css_file", "/static/css/lesson_request/style.css");
 		return "template/layout";

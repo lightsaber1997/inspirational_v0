@@ -1,0 +1,59 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.inspirational.lessonRequest.LessonRequestSubjectDAO">
+	<select id="selectAll"
+		resultType="com.inspirational.lessonRequest.LessonRequestSubject">
+		select
+		*
+		from
+		`lesson_request_subject`
+	</select>
+	<select id="selectById"
+		resultType="com.inspirational.lessonRequest.LessonRequestSubject">
+		select
+		*
+		from
+		`lesson_request_subject`
+		where
+		id = #{id}
+	</select>
+	<select id="selectByLessonRequestId"
+		resultType="com.inspirational.lessonRequest.LessonRequestSubject">
+		select
+		*
+		from
+		`lesson_request_subject`
+		where
+		lessonRequestId = #{lessonRequestId}
+	</select>
+	<select id="selectBySubjectId"
+		resultType="com.inspirational.lessonRequest.LessonRequestSubject">
+		select
+		*
+		from
+		`lesson_request_subject`
+		where
+		subjectId = #{subjectId}
+	</select>
+	<insert id="insert">
+		insert into
+		`lesson_request_subject`
+		(lessonRequestId, subjectId)
+		values
+		(#{lessonRequestId}, #{subjectId})
+	</insert>
+	<delete id="deleteById">
+		delete from
+		`lesson_request_subject`
+		where
+		id = #{id}
+	</delete>
+	<delete id="deleteByLessonRequestIdAndSubjectId">
+		delete from
+		`lesson_request_subject`
+		where
+		lessonRequestId = #{lessonRequestId} and
+		subjectId = #{subjectId}
+	</delete>
+</mapper>
