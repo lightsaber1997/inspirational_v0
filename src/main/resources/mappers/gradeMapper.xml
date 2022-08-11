@@ -1,0 +1,39 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.inspirational.grade.GradeDAO">
+	<select id="selectAll"
+		resultType="com.inspirational.grade.Grade">
+		select
+		*
+		from
+		`grade`
+	</select>
+	<select id="selectById"
+		resultType="com.inspirational.grade.Grade">
+		select
+		*
+		from
+		`grade`
+		where
+		id = #{id}
+	</select>
+	<select id="selectByGradeCategory1"
+		resultType="com.inspirational.grade.Grade">
+		select
+		*
+		from
+		`grade`
+		where
+		gradeCategory1 = #{gradeCategory1}
+	</select>
+	<select id="selectByGradeCategory1AndGradeCategory2"
+		resultType="com.inspirational.grade.Grade">
+		select
+		*
+		from
+		`grade`
+		where
+		gradeCategory1 = #{gradeCategory1} and
+		gradeCategory2 = #{gradeCategory2}
+	</select>
+</mapper>

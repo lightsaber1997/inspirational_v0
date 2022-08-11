@@ -60,7 +60,7 @@
 	
 	<select id="selectDistinctGuwhereSi" resultType="String">
 		select
-		distinct `si`
+		distinct `gu`
 		from
 		`korea_sigudong`
 		where
@@ -69,12 +69,12 @@
 	
 	<select id="selectDistinctDongwhereSiAndGu" resultType="String">
 		select
-		distinct `si`
+		distinct `dong`
 		from
 		`korea_sigudong`
 		where
 		si = #{si}
 		and
-		dong = #{dong}
+		gu = #{gu}
 	</select>
 </mapper>

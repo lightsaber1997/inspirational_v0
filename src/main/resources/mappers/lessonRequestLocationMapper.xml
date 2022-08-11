@@ -1,0 +1,56 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.inspirational.lessonRequest.LessonRequestLocationDAO">
+	<select id="selectAll"
+		resultType="com.inspirational.lessonRequest.LessonRequest">
+		select
+		*
+		from
+		`lesson_request_location`
+	</select>
+	<select id="selectById"
+		resultType="com.inspirational.lessonRequest.LessonRequest">
+		select
+		*
+		from
+		`lesson_request_location`
+		where
+		id = #{id}
+	</select>
+	<select id="selectByLessonRequestId"
+		resultType="com.inspirational.lessonRequest.LessonRequest">
+		select
+		*
+		from
+		`lesson_request_location`
+		where
+		lessonRequestId = #{lessonRequestId}
+	</select>
+	<select id="selectByLocationId"
+		resultType="com.inspirational.lessonRequest.LessonRequest">
+		select
+		*
+		from
+		`lesson_request_location`
+		where
+		locationId = #{locationId}
+	</select>
+	<select id="selectByLessonRequestIdAndLocationId"
+		resultType="com.inspirational.lessonRequest.LessonRequest">
+		select
+		*
+		from
+		`lesson_request_location`
+		where
+		lessonRequestId = #{lessonRequestId} and
+		locationId = #{locationId}
+	</select>
+	<insert id="insert">
+		insert into
+		`lesson_request_location`
+		(lessonRequestId, locationId)
+		values
+		(#{lessonRequestId}, #{locationId})
+	</insert>
+</mapper>

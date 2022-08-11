@@ -37,4 +37,14 @@ public class KoreaSiGuDongBO {
 	public List<String> selectDistinctSi() {
 		return koreaSiGuDongDAO.selectDistinctSi();
 	}
+	
+	public List<String> selectDistinctGuwhereSi(
+			String si) {
+		return koreaSiGuDongDAO.selectDistinctGuwhereSi(si);
+	}
+	public List<String> selectDistinctDongwhereSiAndGu(
+			String si,
+			String gu) {
+		return koreaSiGuDongDAO.selectDistinctDongwhereSiAndGu(si, gu);
+	}
 }

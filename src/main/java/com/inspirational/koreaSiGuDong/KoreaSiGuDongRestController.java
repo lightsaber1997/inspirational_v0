@@ -21,6 +21,13 @@ public class KoreaSiGuDongRestController {
 		List<String> listDistinctSi = koreaSiGuDongBO.selectDistinctSi();
 		List<KoreaSiGuDong> listKoreaSiGuDong = koreaSiGuDongBO.selectAll();
 		map.put("list_korea_si_gu_dong", listKoreaSiGuDong);
+		return map;
+	}
+	
+	@RequestMapping("/si")
+	public Map<String, Object> getSi() {
+		Map<String, Object> map = new HashMap<>();
+		List<String> listDistinctSi = koreaSiGuDongBO.selectDistinctSi();
 		map.put("list_distinct_si", listDistinctSi);
 		return map;
 	}
@@ -29,6 +36,18 @@ public class KoreaSiGuDongRestController {
 	public Map<String, Object> getGu(
 			@RequestParam("si") String si) {
 		Map<String, Object> map = new HashMap<>();
+		List<String> listDistinctGu = koreaSiGuDongBO.selectDistinctGuwhereSi(si);
+		map.put("list_distinct_gu", listDistinctGu);
+		return map;
+	}
+	
+	@RequestMapping("/dong")
+	public Map<String, Object> getDong(
+			@RequestParam("si") String si,
+			@RequestParam("gu") String gu) {
+		Map<String, Object> map = new HashMap<>();
+		List<String> listDistinctDong = koreaSiGuDongBO.selectDistinctDongwhereSiAndGu(si, gu);
+		map.put("list_distinct_dong", listDistinctDong);
 		return map;
 	}
 }

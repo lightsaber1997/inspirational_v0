@@ -22,8 +22,8 @@ public interface KoreaSiGuDongDAO {
 	
 	public List<String> selectDistinctSi();
 	public List<String> selectDistinctGuwhereSi(
-			@Param("Si") String si);
+			@Param("si") String si);
 	public List<String> selectDistinctDongwhereSiAndGu(
-			@Param("Si") String si,
-			@Param("Gu") String gu);
+			@Param("si") String si,
+			@Param("gu") String gu);
 }

@@ -14,7 +14,7 @@
 		</button>
 
 		<sec:authorize access="isAnonymous()">
-			<a href="/user/sign_in_view">로그인</a>
+			<a class="btn btn-light" href="/user/sign_in_view">로그인</a>
 		</sec:authorize>
 
 		<sec:authorize access="hasAuthority('student')">
@@ -25,7 +25,7 @@
 					<li class="nav-item"><a class="nav-link" aria-current="page"
 						href="#">선생님 목록</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">수업 목록</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">수업 요청하기</a></li>
+					<li class="nav-item"><a class="nav-link" href="/lesson_request/">수업 요청하기</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">결제</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">메시지</a></li>
 					<li class="nav-item"><a class="nav-link" href="/user/profile/${principal.username}">내 프로필</a></li>
